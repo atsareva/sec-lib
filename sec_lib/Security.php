@@ -18,7 +18,7 @@ class Security
         if (self::$_secDebug || self::$_secConfig->_secErrors)
         {
             error_reporting(E_USER_ERROR | E_USER_WARNING);
-            set_error_handler('_seqErrorHandler');
+            set_error_handler('_secErrorHandler');
         }
         else
             error_reporting(0);
@@ -71,7 +71,7 @@ class Security
 
         if (!isset($tokenArray) || !is_array($tokenArray))
         {
-            seq_log_('secCheckToken: no SESSION found at execution time. Call secCheckToken after session start.', '');
+            self::_secLog('secCheckToken: no SESSION found at execution time. Call secCheckToken after session start.', '');
             return false;
         }
 
@@ -479,7 +479,7 @@ class Security
                     return '';
                 break;
             default:
-                if (!SEQ_ISBETWEEN($string, $minValue, $maxValue, $varName, $source))
+                if (!self::secIsBeween($string, $minValue, $maxValue, $varName, $source))
                     return '';
                 break;
         }
@@ -660,7 +660,7 @@ class Security
 
         $originName = $originName ? md5($originName . $headerHash . session_id() . self::_secAppSalt()) : md5($headerHash . session_id() . self::_secAppSalt());
 
-        return 'SEQ_TOKEN_' . $originName;
+        return 'sec_token_' . $originName;
     }
 
     /**
@@ -781,7 +781,7 @@ class Security
             self::$_secAppSalt = file_get_contents(self::$_secConfig->_secBaseDir . 'var/app_salt.txt');
     }
 
-    private function _seqErrorHandler($code = '', $msg = '', $file = '', $line = '')
+    private function _secErrorHandler($code = '', $msg = '', $file = '', $line = '')
     {
         switch ($code)
         {
@@ -909,14 +909,14 @@ class Security
      */
     private static function _secTerminateSession($redirectExit = true)
     {
-        $seqSessName = self::$_secConfig->_secSessionName ? self::$_secConfig->_secSessionName : session_name();
+        $secSessName = self::$_secConfig->_secSessionName ? self::$_secConfig->_secSessionName : session_name();
 
         // expire cookie
-        if (self::$_secConfig->_secSecureCookies && $_COOKIE && isset($_COOKIE[$seqSessName]) && !headers_sent())
+        if (self::$_secConfig->_secSecureCookies && $_COOKIE && isset($_COOKIE[$secSessName]) && !headers_sent())
         {
             // could we be too early to know 'path' or 'domain' settings?
             $cookieData = session_get_cookie_params();
-            setcookie($seqSessName, '', time() - self::$_secConfig->_secSessionLifeTime, $cookieData['path'], $cookieData['domain']);
+            setcookie($secSessName, '', time() - self::$_secConfig->_secSessionLifeTime, $cookieData['path'], $cookieData['domain']);
 
             if (isset($_SESSION))
                 $_COOKIE = array();

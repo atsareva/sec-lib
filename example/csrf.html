@@ -87,15 +87,29 @@
                         </p>
                         <h3>Пример использования</h3>
                         <div class="separator"></div>
+                        <p>&emsp;&emsp;Для генерации токена в форме используйте</p>
                         <pre class="prettyprint linenums">
                                 <ol class="linenums">
-                                    <li class="L0"><span class="tag">require_once 'sec_lib/Security.php';</span></li>
-                                    <li class="L1"><span class="tag">Security::run();</span></li>
+                                    <li class="L0"><span class="tag">&lt;form&gt;</span></li>
+                                    <li class="L1"><span class="tag">&emsp;&emsp;&lt;?php echo Security::secFtoken('userLogin') ?&gt;</span></li>
+                                    <li class="L2"><span class="tag">&lt;/form&gt;</span></li>
                                 </ol>
                         </pre>
-                        <p>
-                            <span class="label label-info">Внимание!</span> Подключение библиотеки и вызов метода run() следует выполнять после инициализации сессии.
-                        </p>
+                        <p>&emsp;&emsp;Выглядеть эта форма будет так </p>
+                        <pre class="prettyprint linenums">
+                                <ol class="linenums">
+                                    <li class="L0"><span class="tag">&lt;form&gt;</span></li>
+                                    <li class="L1"><span class="tag">&emsp;&emsp;&lt;input type="hidden" name="sec_token_4f02047c08ab94f9a731d89831d4ad72" value="7c2ec951d34f2f9830a8768485ccec60"&gt;</span></li>
+                                    <li class="L2"><span class="tag">&lt;/form&gt;</span></li>
+                                </ol>
+                        </pre>
+                        <p>&emsp;&emsp;Для проверки токена с формы используем статический метод</p>
+                        <pre class="prettyprint linenums">
+                                <ol class="linenums">
+                                    <li class="L0"><span class="tag">&lt;?php Security::secCheckToken('userLogin'); ?&gt;</span></li>
+                                </ol>
+                        </pre>
+                        <p>&emsp;&emsp;В зависимости от того как настроена sec-lib, будет происходить реакция на неправильный или истекший токен, см. <a href="./configuration.html">Настройки</a> sec-lib.</p>
                     </div>
                 </div>
             </div>
