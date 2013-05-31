@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHP Security Lib</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/docs.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/prettify.css" rel="stylesheet">
+
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="./index.html">PHP Security Library</a></li>
+                            <li><a href="./configuration.html">Настройки</a></li>
+                            <li><a href="./csrf.html">Атака CSRF</a></li>
+                            <li class="active"><a href="./sql-injection.html">SQL-инъекции</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="container">
+                <div class="brand">
+                    <a href="./index.html"><h1>PHP <span>SecLib</span></h1></a>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="container-shadow">
+                <div class="row-fluid">
+                    <div class="span4 bs-docs-sidebar">
+                        <ul class="nav nav-list bs-docs-sidenav affix-top">
+                            <li><a href="./index.html">PHP Security Library<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./configuration.html">Настройки<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./csrf.html">Атака CSRF</a></li>
+                            <li class="active"><a href="./sql-injection.html">SQL-инъекции</a></li>
+                        </ul>
+                    </div>
+                    <div class="span8">
+                        <h3>Защита приложения от SQL-инъекций</h3>
+                        <div class="separator"></div>
+                        <p>
+                            &emsp;&emsp;Метод, sec-lib библиотеки, который поможет предотвращать SQL-инъекции является SecMySql().
+                            Пример использования:
+                        </p>
+                        <pre class="prettyprint linenums">
+                                <ol class="linenums">
+                                    <li class="L0"><span class="tag">&lt;?php</span></li>
+                                    <li class="L1"><span class="tag">&emsp;&emsp;&emsp;$query = "SELECT * FROM links WHERE id = " . Security::SecMySql($_GET['id']);</span></li>
+                                    <li class="L2"><span class="tag"></span></li>
+                                    <li class="L3"><span class="tag">&emsp;&emsp;&emsp;$query = "SELECT * FROM links WHERE id = " . Security::SecMySql($_GET['id'], 'INT');</span></li>
+                                    <li class="L4"><span class="tag"></span></li>
+                                    <li class="L5"><span class="tag">&emsp;&emsp;&emsp;$query = "SELECT * FROM links WHERE id = " . Security::SecMySql($_GET['id'], 'STR');</span></li>
+                                    <li class="L6"><span class="tag"></span></li>
+                                    <li class="L7"><span class="tag">&emsp;&emsp;&emsp;$query = "SELECT * FROM links WHERE id = " . Security::SecMySql($_GET['id'], 'INT', 0, 99999999);</span></li>
+                                    <li class="L8"><span class="tag"></span></li>
+                                    <li class="L9"><span class="tag">&emsp;&emsp;&emsp;$query = "SELECT * FROM links WHERE user_name = " . Security::SecMySql($_GET['user_name'], 'STR', 3, 10);</span></li>
+                                    <li class="L10"><span class="tag">?&gt</span></li>
+                                </ol>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
