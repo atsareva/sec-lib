@@ -1,0 +1,90 @@
+[COOKIE] __atuvc=10|16
+[COOKIE] PHPSESSID=ad3fb9d9b0224a1fdbd72c56d2d17a59
+[SESSION] SEC=	[session_touchtime] => 1369731919
+	[session_creationtime] => 1369728937
+	[agent_key] => f75be027fd55b1b0a42f71fc34907af6
+	[sec_token] => 
+	[session_touchtime] => 1369731919
+	[session_creationtime] => 1369728937
+	[agent_key] => f75be027fd55b1b0a42f71fc34907af6
+		[SEQ_TOKEN_d47f4861ae54998964f6f1f9065d8076] => 
+	[session_touchtime] => 1369731919
+	[session_creationtime] => 1369728937
+	[agent_key] => f75be027fd55b1b0a42f71fc34907af6
+			[token] => b392576e0c0b7b53eeed8fea515ead9f
+			[time] => 1369730687
+			[once] => 
+
+
+
+[SERVER] REDIRECT_MAGE_IS_DEVELOPER_MODE=
+[SERVER] REDIRECT_STATUS=200
+[SERVER] MAGE_IS_DEVELOPER_MODE=
+[SERVER] HTTP_HOST=labs-blog.com
+[SERVER] HTTP_CONNECTION=keep-alive
+[SERVER] HTTP_CACHE_CONTROL=max-age=0
+[SERVER] HTTP_ACCEPT=text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+[SERVER] HTTP_USER_AGENT=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 Safari/537.22
+[SERVER] HTTP_REFERER=http://labs-blog.com/home/front
+[SERVER] HTTP_ACCEPT_ENCODING=gzip,deflate,sdch
+[SERVER] HTTP_ACCEPT_LANGUAGE=ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+[SERVER] HTTP_ACCEPT_CHARSET=windows-1251,utf-8;q=0.7,*;q=0.3
+[SERVER] HTTP_COOKIE=__atuvc=10%7C16; PHPSESSID=ad3fb9d9b0224a1fdbd72c56d2d17a59
+[SERVER] PATH=/usr/local/bin:/usr/bin:/bin
+[SERVER] SERVER_SIGNATURE=<address>Apache/2.2.20 (Ubuntu) Server at labs-blog.com Port 80</address>
+
+[SERVER] SERVER_SOFTWARE=Apache/2.2.20 (Ubuntu)
+[SERVER] SERVER_NAME=labs-blog.com
+[SERVER] SERVER_ADDR=127.0.0.1
+[SERVER] SERVER_PORT=80
+[SERVER] REMOTE_ADDR=127.0.0.1
+[SERVER] DOCUMENT_ROOT=/var/www/labs-blog.com/public_html
+[SERVER] SERVER_ADMIN=admin@beprogrammer.com
+[SERVER] SCRIPT_FILENAME=/var/www/labs-blog.com/public_html/index.php
+[SERVER] REMOTE_PORT=54729
+[SERVER] REDIRECT_URL=/profile/login
+[SERVER] GATEWAY_INTERFACE=CGI/1.1
+[SERVER] SERVER_PROTOCOL=HTTP/1.1
+[SERVER] REQUEST_METHOD=GET
+[SERVER] QUERY_STRING=
+[SERVER] REQUEST_URI=/profile/login
+[SERVER] SCRIPT_NAME=/index.php
+[SERVER] PHP_SELF=/index.php
+[SERVER] REQUEST_TIME=1369731919
+====================================================================================================
+[SESSION] SEC=	[session_touchtime] => 1369731919
+	[session_creationtime] => 1369731919
+	[agent_key] => f75be027fd55b1b0a42f71fc34907af6
+
+[SERVER] REDIRECT_MAGE_IS_DEVELOPER_MODE=
+[SERVER] REDIRECT_STATUS=200
+[SERVER] MAGE_IS_DEVELOPER_MODE=
+[SERVER] HTTP_HOST=labs-blog.com
+[SERVER] HTTP_CONNECTION=keep-alive
+[SERVER] HTTP_ACCEPT=*/*
+[SERVER] HTTP_USER_AGENT=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.22 (KHTML, like Gecko) Ubuntu Chromium/25.0.1364.160 Chrome/25.0.1364.160 Safari/537.22
+[SERVER] HTTP_ACCEPT_ENCODING=gzip,deflate,sdch
+[SERVER] HTTP_ACCEPT_LANGUAGE=ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4
+[SERVER] HTTP_ACCEPT_CHARSET=windows-1251,utf-8;q=0.7,*;q=0.3
+[SERVER] PATH=/usr/local/bin:/usr/bin:/bin
+[SERVER] SERVER_SIGNATURE=<address>Apache/2.2.20 (Ubuntu) Server at labs-blog.com Port 80</address>
+
+[SERVER] SERVER_SOFTWARE=Apache/2.2.20 (Ubuntu)
+[SERVER] SERVER_NAME=labs-blog.com
+[SERVER] SERVER_ADDR=127.0.0.1
+[SERVER] SERVER_PORT=80
+[SERVER] REMOTE_ADDR=127.0.0.1
+[SERVER] DOCUMENT_ROOT=/var/www/labs-blog.com/public_html
+[SERVER] SERVER_ADMIN=admin@beprogrammer.com
+[SERVER] SCRIPT_FILENAME=/var/www/labs-blog.com/public_html/index.php
+[SERVER] REMOTE_PORT=54734
+[SERVER] REDIRECT_URL=/favicon.ico
+[SERVER] GATEWAY_INTERFACE=CGI/1.1
+[SERVER] SERVER_PROTOCOL=HTTP/1.1
+[SERVER] REQUEST_METHOD=GET
+[SERVER] QUERY_STRING=
+[SERVER] REQUEST_URI=/favicon.ico
+[SERVER] SCRIPT_NAME=/index.php
+[SERVER] PHP_SELF=/index.php
+[SERVER] REQUEST_TIME=1369731919
+====================================================================================================

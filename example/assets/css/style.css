@@ -1,0 +1,60 @@
+
+/* General Styles */
+body{background: url(../img/bg.png) repeat;line-height: 20px;}
+body > .container{width: 960px;min-height: 650px;background: #f4f4f4;box-shadow: inset 0px 0px 100px 0px #ececec;border: 1px solid #bbb;border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;}
+body > .container .container-shadow{border: 1px solid #f6f6f6;padding: 20px;border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;}
+/*body > .container .row-fluid{padding: 20px;}*/
+
+header.header{padding-bottom: 10px;}
+
+.footer{background-color: transparent;border-top: none;margin-top: 0;padding: 20px 0;text-align: left;}
+.footer > .container{width: 960px;background: #333;padding: 15px 0 30px;color: #fff;font-size: 12px; }
+
+h2{font-weight: normal;}
+h3{font-weight: normal;}
+
+dl dt{float: left;margin-right: 10px;}
+
+table td{padding: 5px 10px;}
+
+input{height: 100%;}
+
+label.error{color: #b94a48;font-style: italic;margin-left: 100px;font-size: 13px;}
+
+.label{color: #8f8f8f; font-size: 14px;background: none;text-shadow: none;padding: 0;line-height: 20px;font-weight: normal;}
+.label.label-info{
+    font-size: 12px;
+    padding: 2px 4px;
+    margin-right: 10px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+    background-color: #3a87ad;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;}
+
+td.label{padding: 5px 10px;}
+
+.separator{border-bottom: 1px dotted #ccc; width: 100%;margin: 20px 0;}
+
+.brand{margin: 30px 20px;}
+.brand h1{font-weight: normal;}
+.brand h1 span{color: #333;font-size: 30px;}
+.brand a:hover{text-decoration: none; color: #0088cc;}
+
+.nav.nav-list{border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;background-color: transparent;webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;}
+.nav.nav-list > li > a{color: #797979;border-bottom: 1px solid #e5e5e5;}
+.nav.nav-list > li:first-child > a{border-radius: 0px;-webkit-border-radius: 0px;-moz-border-radius: 0px;}
+.nav.nav-list > li.active > a{color: #333;background-color: #ccc;webkit-box-shadow: none;-moz-box-shadow: none;box-shadow: none;}
+.nav.nav-list > li > a span.parent{font-size: 16px;color: #303030;}
+.nav.nav-list.bs-docs-sidenav > li > a{border: 0;border-bottom: 1px solid #e5e5e5;}
+.nav.nav-list.bs-docs-sidenav > li > a:hover{background-color: #74bdd8; color: #333}
+
+.alignCenter{text-align: center;}
+
+ul.config > li{margin: 10px 0;}
+
+div.img{margin: 20px 0;}

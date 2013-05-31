@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHP Security Lib</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/docs.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/prettify.css" rel="stylesheet">
+
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li>
+                                <a href="./index.html">PHP Security Library</a>
+                            </li>
+                            <li class="active">
+                                <a href="./configuration.html">Настройки</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="container">
+                <div class="brand">
+                    <a href="./index.html"><h1>PHP <span>SecLib</span></h1></a>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="container-shadow">
+                <div class="row-fluid">
+                    <div class="span4 bs-docs-sidebar">
+                        <ul class="nav nav-list bs-docs-sidenav affix-top">
+                            <li>
+                                <a href="./index.html">PHP Security Library<i class="icon-chevron-right"></i></a>
+                            </li>
+                            <li class="active">
+                                <a href="./configuration.html">Настройки<i class="icon-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="span8">
+                        <div>
+                            <h3>Конфигурации</h3>
+                            <div class="separator"></div>
+                            <p>Все настройки библиотеки находятся в классе SecConfig.php.</p>
+                            <ul class="config">
+                                <li>
+                                    <h5>$_secBaseDir</h5>
+                                    <p>Абсолютный путь к sec-lib библиотеке. Устанавливается по умолчанию как</p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag">$this->_secBaseDir = dirname(__FILE__) . DIRECTORY_SEPARATOR;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <span class="label label-info">Внимание!</span>Путь всегда должен заканчиваться косой чертой (/).
+                                </li>
+                                <li>
+                                    <h5>$_secSessionName</h5>
+                                    <p>Имя сессии. По умолчанию PHPSESS.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secSecureCookies</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secSecureCookies = 1;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Если установлена в 1, то устанавливается и проверяется абсолютное время жизни кук.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secSecureSession</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secSecureSession = 1;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Если установлено в 1, то устанавливается и проверяется абсолютное время жизни сессии.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secOnerrorRedirectTo</h5>
+                                    <p>Этому свойству присваивается ссылка, куда пользователь будет перенаправлен в случае: ошибки безопасности, обнаружении XSS атак, невалидных токенах.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secSessionHeadersCheck</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secSessionHeadersCheck = 1;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Если установлено в 1, сессия привязываеится к используемому браузеру. Изменение браузера повлечет за собой очистку кук и сессии.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secLog</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secLog = 1;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Если установлено в 1, то сообщения об ошибках, обнаруженные атаки и неправильнык токены будут записаны в файл var/log.txt.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secSessionLifeTime</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secSessionLifeTime = 7200;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Время жизни сессии.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secSessionAbsoluteLifeTime</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secSessionAbsoluteLifeTime = 21600;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Абсолютное время жизни сессии.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secTokenLifeTime</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secTokenLifeTime = 7200;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Время жизни токенов.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secSessionRefresh</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secSessionRefresh = 7200;</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Время, через которое будет перезаписана сессия.</p>
+                                </li>
+                                <li>
+                                    <h5>$_secIdsOnAttackAction</h5>
+                                    <p>По умолчанию: </p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag"> public $_secIdsOnAttackAction = 'logout redirect';</span></li>
+                                        </ol>
+                                    </pre>
+                                    <p>Реация приложения на найденные атаки и неправильные токены.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

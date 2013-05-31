@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHP Security Lib</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/docs.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/prettify.css" rel="stylesheet">
+
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active">
+                                <a href="./index.html">PHP Security Library</a>
+                            </li>
+                            <li>
+                                <a href="./configuration.html">Настройки</a>
+                            </li>
+                            <li>
+                                <a href="./csrf.html">Атака CSRF</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="container">
+                <div class="brand">
+                    <a href="./index.html"><h1>PHP <span>SecLib</span></h1></a>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="container-shadow">
+                <div class="row-fluid">
+                    <div class="span4 bs-docs-sidebar">
+                        <ul class="nav nav-list bs-docs-sidenav affix-top">
+                            <li class="active">
+                                <a href="./index.html">PHP Security Library<i class="icon-chevron-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="./configuration.html">Настройки<i class="icon-chevron-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="./csrf.html">Атака CSRF</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="span8">
+                        <div>
+                            <h3>PHP Security Library</h3>
+                            <div class="separator"></div>
+                            <p>Это небольшая библиотека на PHP, которая поможет повысить уровень безопасности вашего web-приложения.
+                                С ее помощью вы можете предотвратить следующие выды атак:
+                            </p>
+                            <ul>
+                                <li>XSS (Cross Site Scripting)</li>
+                                <li>SQL-Injection</li>
+                                <li>CSRF (Cross Site Request Forgery)</li>
+                                <li>Session-Fixation</li>
+                                <li>Mail-Header-Injection</li>
+                                <li>HTTP-Header-Manipulation</li>
+                                <li>HTML code injection</li>
+                            </ul>
+                            <p>Все методы и свойства библиотеки статические, что упрощает ее использование.</p>
+                        </div>
+                        <div>
+                            <h3>Установка</h3>
+                            <div class="separator"></div>
+                            <p>
+                                Скопируйте директорию sec-lib в корневую папку вашего web-приложения.
+                                Затем подключите класс Security.php c помощью php функций require_once или include_once и вызовите статический метод run().
+                            </p>
+                            <pre class="prettyprint linenums">
+                                <ol class="linenums">
+                                    <li class="L0"><span class="tag">require_once 'sec_lib/Security.php';</span></li>
+                                    <li class="L1"><span class="tag">Security::run();</span></li>
+                                </ol>
+                            </pre>
+                            <p>
+                                <span class="label label-info">Внимание!</span> Подключение библиотеки и вызов метода run() следует выполнять после инициализации сессии.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
