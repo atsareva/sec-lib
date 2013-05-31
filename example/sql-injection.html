@@ -21,10 +21,11 @@
                 <div class="container">
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="./index.html">PHP Security Library</a></li>
-                            <li><a href="./configuration.html">Настройки</a></li>
+                            <li><a href="./index.html">PHP Security Library<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./configuration.html">Настройки<i class="icon-chevron-right"></i></a></li>
                             <li><a href="./csrf.html">Атака CSRF</a></li>
                             <li class="active"><a href="./sql-injection.html">SQL-инъекции</a></li>
+                            <li><a href="./xss.html">XSS атаки</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,13 +47,19 @@
                             <li><a href="./configuration.html">Настройки<i class="icon-chevron-right"></i></a></li>
                             <li><a href="./csrf.html">Атака CSRF</a></li>
                             <li class="active"><a href="./sql-injection.html">SQL-инъекции</a></li>
+                            <li><a href="./xss.html">XSS атаки</a></li>
                         </ul>
                     </div>
                     <div class="span8">
                         <h3>Защита приложения от SQL-инъекций</h3>
                         <div class="separator"></div>
                         <p>
-                            &emsp;&emsp;Метод, sec-lib библиотеки, который поможет предотвращать SQL-инъекции является SecMySql().
+                            &emsp;&emsp;"SQL-инъекция" (SQL-injection) - способ нападения на базу данных в обход межсетевой защиты. В этом методе, параметры, передаваемые к базе
+                            данных через веб-приложения, изменяются таким образом, чтобы изменить выполняемый SQL-запрос. Например, добавляя различные
+                            символы к параметру, можно выполнить дополнительный запрос совместно с первым.
+                        </p>
+                        <p>
+                            &emsp;&emsp;Методом, sec-lib библиотеки, который поможет предотвращать SQL-инъекции является SecMySql().
                             Пример использования:
                         </p>
                         <pre class="prettyprint linenums">
