@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PHP Security Lib</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/docs.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/prettify.css" rel="stylesheet">
+
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="./index.html">PHP Security Library</a></li>
+                            <li><a href="./configuration.html">Настройки</a></li>
+                            <li><a href="./csrf.html">Атака CSRF</a></li>
+                            <li><a href="./sql-injection.html">SQL-инъекции</a></li>
+                            <li><a href="./xss.html">XSS атаки</a></li>
+                            <li class="active"><a href="./validation.html">Валидация</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="header">
+            <div class="container">
+                <div class="brand">
+                    <a href="./index.html"><h1>PHP <span>SecLib</span></h1></a>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="container-shadow">
+                <div class="row-fluid">
+                    <div class="span4 bs-docs-sidebar">
+                        <ul class="nav nav-list bs-docs-sidenav affix-top">
+                            <li><a href="./index.html">PHP Security Library<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./configuration.html">Настройки<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./csrf.html">Атака CSRF<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./sql-injection.html">SQL-инъекции<i class="icon-chevron-right"></i></a></li>
+                            <li><a href="./xss.html">XSS атаки<i class="icon-chevron-right"></i></a></li>
+                            <li class="active"><a href="./validation.html">Валидация<i class="icon-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="span8">
+                        <div>
+                            <h3>Проверка данных web-форм</h3>
+                            <div class="separator"></div>
+                            <p>Вот примерный сценарий взаимодействия с пользователем с помощью форм:</p>
+                            <ul>
+                                <li>Показ форм.</li>
+                                <li>Заполнение ее и отправка пользователем.</li>
+                                <li>
+                                    Если заполнены не все необходимые поля или данные имеют не тот формат - показываем сообщение об ошибке и возвращаем данные
+                                    пользователю для последующей правки.
+                                </li>
+                                <li>Этот процесс продолжается, пока сервер не получит верные данные.</li>
+                            </ul>
+                            <p>После приема формы следует:</p>
+                            <ul>
+                                <li>Проверить, заполнены ли все поля.</li>
+                                <li>
+                                    Убедится, что данные нужного формата и не содержат посторонних символов . (Например, имя пользователя может содержать только буквы.
+                                    Если уже с таким именем есть пользователь, следует вывести об этом сообщение. И т.д. )
+                                </li>
+                                <li>Фильтрация данных для безопасности (защита от XSS/SQL-inj и пр.)</li>
+                                <li>Подготовить данные к добавлению в БД.</li>
+                            </ul>
+                            <p>
+                                PHP SecLib предоставляет набор методов для быстрой и удобной проверки данных, введенных пользователем.
+                            </p>
+                        </div>
+                        <div>
+                            <h3>Методы. Пример использования.</h3>
+                            <div class="separator"></div>
+                            <ul>
+                                <li>
+                                    <p>Введенные данные должны быть числом, в заданном интервале.</p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag">public static function secIsNum($string = '', $minValue = null, $maxValue = null)</span></li>
+                                            <li class="L1"><span class="tag"></span></li>
+                                            <li class="L2"><span class="tag">//пример</span></li>
+                                            <li class="L3"><span class="tag">if (Security::secIsNum($_GET['id'], 0, 10))</span></li>
+                                            <li class="L1"><span class="tag">{</span></li>
+                                            <li class="L1"><span class="tag">&emsp;&emsp;$user = Core::getModel('user')->load($_GET['id'])</span></li>
+                                            <li class="L1"><span class="tag">}</span></li>
+                                        </ol>
+                                    </pre>
+                                </li>
+                                <li>
+                                    <p>Введенные данные должны быть строкой, длинной в заданном интервале.</p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag">public static function secIsStr($string = '', $minValue = null, $maxValue = null)</span></li>
+                                            <li class="L1"><span class="tag"></span></li>
+                                            <li class="L2"><span class="tag">//пример</span></li>
+                                            <li class="L3"><span class="tag">if (!Security::secIsStr($_GET['user_name'], 3, 20))</span></li>
+                                            <li class="L1"><span class="tag">{</span></li>
+                                            <li class="L1"><span class="tag">&emsp;&emsp;$error = 'Введите валидное имя пользователя!'</span></li>
+                                            <li class="L1"><span class="tag">}</span></li>
+                                        </ol>
+                                    </pre>
+                                </li>
+                                <li>
+                                    <p>Проверка на валидность email-адреса.</p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag">public static function secValidEmail($str)</span></li>
+                                            <li class="L1"><span class="tag"></span></li>
+                                            <li class="L2"><span class="tag">//пример</span></li>
+                                            <li class="L3"><span class="tag">if (!Security::secValidEmail($_GET['email']))</span></li>
+                                            <li class="L1"><span class="tag">{</span></li>
+                                            <li class="L1"><span class="tag">&emsp;&emsp;$error = 'Введите валидный email-адрес!'</span></li>
+                                            <li class="L1"><span class="tag">}</span></li>
+                                        </ol>
+                                    </pre>
+                                </li>
+                                <li>
+                                    <p>Проверка на валидность email-адреса.</p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag">public static function secValidIp($str)</span></li>
+                                            <li class="L1"><span class="tag"></span></li>
+                                            <li class="L2"><span class="tag">//пример</span></li>
+                                            <li class="L3"><span class="tag">if (Security::secValidIp($_GET['ip']))</span></li>
+                                            <li class="L1"><span class="tag">{</span></li>
+                                            <li class="L1"><span class="tag">&emsp;&emsp;$ip = $_GET['ip'];</span></li>
+                                            <li class="L1"><span class="tag">}</span></li>
+                                        </ol>
+                                    </pre>
+                                </li>
+                                <li>
+                                    <p>Проверка на соответсвие полей.</p>
+                                    <pre class="prettyprint linenums">
+                                        <ol class="linenums">
+                                            <li class="L0"><span class="tag">public static function secMatches($str, $field)</span></li>
+                                            <li class="L1"><span class="tag"></span></li>
+                                            <li class="L2"><span class="tag">//пример</span></li>
+                                            <li class="L3"><span class="tag">if (!Security::secMatches($_GET['password'], $_GET['confirm_password']))</span></li>
+                                            <li class="L1"><span class="tag">{</span></li>
+                                            <li class="L1"><span class="tag">&emsp;&emsp;$error = 'Поля "Пароль" и "Подтверждение пароля" должны совпадать!'</span></li>
+                                            <li class="L1"><span class="tag">}</span></li>
+                                        </ol>
+                                    </pre>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
