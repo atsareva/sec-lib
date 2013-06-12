@@ -92,6 +92,9 @@ class Security
 
                 if ($tokenArray[$tokenName]['once'])
                     unset($_SESSION['SEC']['sec_token'][$tokenName]); // no replay
+
+                if (isset($_POST[$tokenName]))
+                    unset($_POST[$tokenName]);
 // SESSION OK
             }
             else
@@ -191,12 +194,6 @@ class Security
                 if (strtoupper(trim($minValList[$t])) == 'NULL')
                     return true; // if zero value allowed, then ok
 
-
-
-
-
-
-
         }
 
         $typeNumeric = is_numeric($string);
@@ -265,6 +262,8 @@ class Security
      */
     public static function secValidEmail($str)
     {
+        self::_secCheckIntrusion($str);
+
         return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $str)) ? FALSE : TRUE;
     }
 
@@ -276,6 +275,8 @@ class Security
      */
     public static function secValidIp($ip)
     {
+        self::_secCheckIntrusion($ip);
+
         $ipSegments = explode('.', $ip);
 
         // Always 4 segments needed
